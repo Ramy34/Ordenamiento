@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     Button btnFondo, btnRei;
     ConstraintLayout cl;
     TextView tvFondo;
+    MediaPlayer mpPerder, mpGanar;
 
     ArrayList<Integer> lista;
     Random r = new Random();
@@ -57,6 +59,9 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         btn19 = findViewById(R.id.btn19);
         btn20 = findViewById(R.id.btn20);
 
+        mpPerder = MediaPlayer.create(this, R.raw.error);
+        mpGanar = MediaPlayer.create(this, R.raw.ganar);
+
         lista = getIntent().getIntegerArrayListExtra(getResources().getString(R.string.lista));
         asignarTexto();
 
@@ -88,11 +93,13 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     private boolean juego(int numero){
         if(numero == numAle){
             Toast.makeText(Main2Activity.this, R.string.ganador, Toast.LENGTH_SHORT).show();
+            mpGanar.start();
             return true;
         }
         Toast.makeText(Main2Activity.this, R.string.incorrecto, Toast.LENGTH_SHORT).show();
         intentos++;
-        tvFondo.setText(String.format(getResources().getString(R.string.llevas),intentos));
+        tvFondo.setText(String.format(getResources().getString(R.string.llevas),intentos-1));
+        mpPerder.start();
         return  false;
     }
 
@@ -120,7 +127,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     }
 
     private void prueba() {
-        Log.d("PRUEBA","El número es: " + numAle);
+        Log.d("PRUEBA","El número es: " + (numAle-1));
     }
 
     @Override

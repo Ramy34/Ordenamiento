@@ -14,4 +14,5 @@
     <string name="llevas">You have %d attempts</string>
     <string name="ingresado">You have entered %d numbers</string>
     <string name="reinicio">Restart</string>
+    <string name="content">Image Description</string>
 </resources>

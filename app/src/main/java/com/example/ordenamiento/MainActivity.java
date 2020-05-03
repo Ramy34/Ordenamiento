@@ -8,10 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,37 +21,63 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etNum;
     Button btn;
-    ArrayList<Integer> lista = new ArrayList<>();
     TextView tvBienvenida;
+    ImageButton imB;
+
+    ArrayList<Integer> lista = new ArrayList<>();
     int elementos = 1;
+    boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        imB = findViewById(R.id.imB);
         etNum = findViewById(R.id.etNum);
         btn = findViewById(R.id.btn);
         tvBienvenida = findViewById(R.id.bienvenida);
 
+        int fondo = getIntent().getIntExtra(getResources().getString(R.string.keyFondo),0);
+
+        imB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llenarArreglo();
+            }
+        });
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(lista.size() < 20){
-                    agregarNumero();
-                    if(lista.size() == 19){
+                agregarNumero();
+                if(flag){
+                    enviar();
+                }else {
+                    if (lista.size() == 19) {
                         btn.setText(R.string.enviar);
-                    }else if(lista.size() == 20){
-                        ordenar();
-                        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                        intent.putExtra(getResources().getString(R.string.lista), lista);
-                        startActivity(intent);
+                        flag = true;
                     }
-                }else{
-                    Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private void enviar() {
+        ordenar();
+        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+        intent.putExtra(getResources().getString(R.string.lista), lista);
+        startActivity(intent);
+        lista.clear();
+    }
+
+    private void llenarArreglo() {
+        Random r = new Random();
+        do{
+            int numAle = r.nextInt(1000);
+            lista.add(numAle);
+        }while(lista.size() < 20);
+        enviar();
     }
 
     private void ordenar() {

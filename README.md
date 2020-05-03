@@ -1,5 +1,7 @@
 ## Ejercicio Opcional en Android:
 
+
+
 El ejercicio consistirá en lo siguiente:
 
 Realizar una aplicación que permita ingresar valores numéricos con un máximo de 4 dígitos, para posteriormente ordenarlos con el método de ordenamiento que ustedes elijan implementar.
@@ -17,4 +19,12 @@ Consideraciones adicionales:
 -   La aplicación debe estar en por lo menos dos idiomas desde el archivo de recursos de texto.
 
 ## Extras
-Aquí se en listarán los detalles extras que tenga la app
+
+ - Se tiene una opción de llenar el arreglo de manera automática.
+ - El ordenamiento utilizado fue Bubble Sort Bidireccional.
+ - Se creó un estilo único para los botones utilizados.
+ - Se crea un juego de encontrar el botón correcto donde dependiendo de los intento mostrará un fondo diferente.
+ - Los TextView del ingreso de números y del juego tienen un contador de números ingresados o botones presionados dependiendo el caso.
+ - Hay un botón que permite ver el fondo del juego sin los botones.
+ - Se puede reiniciar el juego sin la necesidad de salir de la activity.
+ - En el log con la palabra "PRUEBA" se muestra el botón que gana el juego.

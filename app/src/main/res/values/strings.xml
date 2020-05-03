@@ -3,7 +3,7 @@
     <string name="bienvenida">Hola sea bienvenido al ordenamiento :3</string>
     <string name="mensajeNum">Ingresa un número</string>
     <string name="guardar">Guardar</string>
-    <string name="vacio" translatable="false"></string>
+    <string name="vacio" translatable="false" />
     <string name="error">Se debe de ingresar un número</string>
     <string name="enviar">Enviar</string>
     <string name="numero">Número</string>
@@ -16,4 +16,5 @@
     <string name="ingresado">Haz ingresado %d números</string>
     <string name="keyFondo" translatable="false">Fondo</string>
     <string name="reinicio">Reiniciar</string>
+    <string name="content">Descripción de imagen</string>
 </resources>
