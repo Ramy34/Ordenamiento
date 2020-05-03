@@ -2,11 +2,14 @@ package com.example.ordenamiento;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -17,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     EditText etNum;
     Button btn;
     ArrayList<Integer> lista = new ArrayList<>();
+    TextView tvBienvenida;
+    int elementos = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +30,23 @@ public class MainActivity extends AppCompatActivity {
 
         etNum = findViewById(R.id.etNum);
         btn = findViewById(R.id.btn);
+        tvBienvenida = findViewById(R.id.bienvenida);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                agregarNumero();
-                if(lista.size() == 19){
-                    btn.setText(R.string.enviar);
-                }else if(lista.size() == 20){
-                    ordenar();
-                    prueba();
+                if(lista.size() < 20){
+                    agregarNumero();
+                    if(lista.size() == 19){
+                        btn.setText(R.string.enviar);
+                    }else if(lista.size() == 20){
+                        ordenar();
+                        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                        intent.putExtra(getResources().getString(R.string.lista), lista);
+                        startActivity(intent);
+                    }
+                }else{
+                    Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -66,18 +78,14 @@ public class MainActivity extends AppCompatActivity {
         }while (cambio);
     }
 
-    private void prueba() {
-        for(int i = 0; i < lista.size(); i++){
-            Log.d("PRUEBA","El elemento en la posición " + i + " es: " + lista.get(i));
-        }
-    }
-
     private void agregarNumero() {
         String numero = etNum.getText().toString();
         if(comprobarNumero(numero)){
             lista.add(Integer.parseInt(numero));
             borrarContenido();
         }
+        tvBienvenida.setText("Llevas " + elementos + " elementos.");
+        elementos++;
     }
 
     private void borrarContenido() {

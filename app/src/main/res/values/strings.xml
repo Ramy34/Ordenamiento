@@ -6,4 +6,9 @@
     <string name="vacio" translatable="false"></string>
     <string name="error">Se debe de ingresar un número</string>
     <string name="enviar">Enviar</string>
+    <string name="numero">Número</string>
+    <string name="encontar">Encuentra el número ganador.</string>
+    <string name="lista" translatable="false">lista</string>
+    <string name="ganador">Felicidades ganaste el juego</string>
+    <string name="incorrecto">¡Número incorrecto!</string>
 </resources>
