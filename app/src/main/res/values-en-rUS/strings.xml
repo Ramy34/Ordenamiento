@@ -7,7 +7,11 @@
     <string name="error">You must enter a number</string>
     <string name="enviar">Send</string>
     <string name="numero">Number</string>
-    <string name="encontar">Find the winning number.</string>
+    <string name="encontar">Find the winning button.</string>
     <string name="ganador">Congratulations you won the game</string>
     <string name="incorrecto">Wrong number!</string>
+    <string name="fondo">See background</string>
+    <string name="llevas">You have %d attempts</string>
+    <string name="ingresado">You have entered %d numbers</string>
+    <string name="reinicio">Restart</string>
 </resources>

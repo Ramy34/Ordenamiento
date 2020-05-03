@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             lista.add(Integer.parseInt(numero));
             borrarContenido();
         }
-        tvBienvenida.setText("Llevas " + elementos + " elementos.");
+        tvBienvenida.setText(String.format(getResources().getString(R.string.ingresado),elementos));
         elementos++;
     }
 

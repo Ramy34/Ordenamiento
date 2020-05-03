@@ -7,8 +7,13 @@
     <string name="error">Se debe de ingresar un número</string>
     <string name="enviar">Enviar</string>
     <string name="numero">Número</string>
-    <string name="encontar">Encuentra el número ganador.</string>
+    <string name="encontar">Encuentra el botón ganador.</string>
     <string name="lista" translatable="false">lista</string>
     <string name="ganador">Felicidades ganaste el juego</string>
     <string name="incorrecto">¡Número incorrecto!</string>
+    <string name="fondo">Ver fondo</string>
+    <string name="llevas">Llevas %d intentos</string>
+    <string name="ingresado">Haz ingresado %d números</string>
+    <string name="keyFondo" translatable="false">Fondo</string>
+    <string name="reinicio">Reiniciar</string>
 </resources>
