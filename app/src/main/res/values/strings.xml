@@ -17,4 +17,11 @@
     <string name="keyFondo" translatable="false">Fondo</string>
     <string name="reinicio">Reiniciar</string>
     <string name="content">Descripción de imagen</string>
+    <string name="tag" translatable="false">PRUEBA</string>
+    <string name="logMes">El botón es: %d</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="importante">¡Importante!</string>
+    <string name="dialogMensaje">¿Deseas utilizar la ayuda?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
 </resources>

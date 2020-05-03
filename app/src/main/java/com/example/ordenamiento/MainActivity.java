@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         btn = findViewById(R.id.btn);
         tvBienvenida = findViewById(R.id.bienvenida);
 
-        int fondo = getIntent().getIntExtra(getResources().getString(R.string.keyFondo),0);
-
         imB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

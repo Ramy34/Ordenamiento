@@ -1,8 +1,10 @@
 package com.example.ordenamiento;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -18,16 +20,18 @@ import java.util.Random;
 public class Main2Activity extends AppCompatActivity implements View.OnClickListener{
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10;
     Button btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19, btn20;
-    Button btnFondo, btnRei;
+    Button btnFondo, btnRei, btnAyuda;
     ConstraintLayout cl;
     TextView tvFondo;
     MediaPlayer mpPerder, mpGanar;
 
     ArrayList<Integer> lista;
+    ArrayList<Integer> apretados = new ArrayList<>();
     Random r = new Random();
+    boolean flag = false;
     int fondo = 0;
     int numAle = r.nextInt(20);
-    int intentos = 1;
+    int intentos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         tvFondo = findViewById(R.id.tvFondo);
         btnFondo = findViewById(R.id.btnFondo);
         btnRei = findViewById(R.id.btnRei);
+        btnAyuda = findViewById(R.id.btnAyuda);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
@@ -61,6 +66,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
         mpPerder = MediaPlayer.create(this, R.raw.error);
         mpGanar = MediaPlayer.create(this, R.raw.ganar);
+        
+        btnAyuda.setVisibility(View.INVISIBLE);
 
         lista = getIntent().getIntegerArrayListExtra(getResources().getString(R.string.lista));
         asignarTexto();
@@ -87,20 +94,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         btn20.setOnClickListener(this);
         btnFondo.setOnClickListener(this);
         btnRei.setOnClickListener(this);
+        btnAyuda.setOnClickListener(this);
         prueba();
-    }
-
-    private boolean juego(int numero){
-        if(numero == numAle){
-            Toast.makeText(Main2Activity.this, R.string.ganador, Toast.LENGTH_SHORT).show();
-            mpGanar.start();
-            return true;
-        }
-        Toast.makeText(Main2Activity.this, R.string.incorrecto, Toast.LENGTH_SHORT).show();
-        intentos++;
-        tvFondo.setText(String.format(getResources().getString(R.string.llevas),intentos-1));
-        mpPerder.start();
-        return  false;
     }
 
     private void asignarTexto() {
@@ -126,10 +121,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         btn20.setText(String.valueOf(lista.get(19)));
     }
 
-    private void prueba() {
-        Log.d("PRUEBA","El número es: " + (numAle-1));
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -137,121 +128,101 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 if(juego(0)){
                     cambiarFondo(intentos);
                 }
-                btn1.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn2:
                 if(juego(1)){
                     cambiarFondo(intentos);
                 }
-                btn2.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn3:
                 if(juego(2)){
                     cambiarFondo(intentos);
                 }
-                btn3.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn4:
                 if(juego(3)){
                     cambiarFondo(intentos);
                 }
-                btn4.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn5:
                 if(juego(4)){
                     cambiarFondo(intentos);
                 }
-                btn5.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn6:
-                if(juego(5)){
+                if(juego(5)) {
                     cambiarFondo(intentos);
                 }
-                btn6.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn7:
                 if(juego(6)){
                     cambiarFondo(intentos);
                 }
-                btn7.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn8:
                 if(juego(7)){
                     cambiarFondo(intentos);
                 }
-                btn8.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn9:
                 if(juego(8)){
                     cambiarFondo(intentos);
                 }
-                btn9.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn10:
                 if(juego(9)){
                     cambiarFondo(intentos);
                 }
-                btn10.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn11:
                 if(juego(10)){
                     cambiarFondo(intentos);
                 }
-                btn11.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn12:
                 if(juego(11)){
                     cambiarFondo(intentos);
                 }
-                btn12.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn13:
                 if(juego(12)){
                     cambiarFondo(intentos);
                 }
-                btn13.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn14:
                 if(juego(13)){
                     cambiarFondo(intentos);
                 }
-                btn14.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn15:
                 if(juego(14)){
                     cambiarFondo(intentos);
                 }
-                btn15.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn16:
                 if(juego(15)){
                     cambiarFondo(intentos);
                 }
-                btn16.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn17:
                 if(juego(16)){
                     cambiarFondo(intentos);
                 }
-                btn17.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn18:
                 if(juego(17)){
                     cambiarFondo(intentos);
                 }
-                btn18.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn19:
                 if(juego(18)){
                     cambiarFondo(intentos);
                 }
-                btn19.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btn20:
                 if(juego(19)){
                     cambiarFondo(intentos);
                 }
-                btn20.setVisibility(View.INVISIBLE);
                 break;
             case R.id.btnFondo:
                 Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
@@ -261,8 +232,30 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             case R.id.btnRei:
                 reiniciar();
                 break;
+            case R.id.btnAyuda:
+                ayudar();
+                break;
         }
 
+    }
+
+    private boolean juego(int numero){
+        apretados.add(numero);
+        invisivilidadBotones(numero+1);
+        intentos++;
+        if(numero == numAle){
+            Toast.makeText(Main2Activity.this, R.string.ganador, Toast.LENGTH_SHORT).show();
+            mpGanar.start();
+            return true;
+        }else{
+            Toast.makeText(Main2Activity.this, R.string.incorrecto, Toast.LENGTH_SHORT).show();
+            tvFondo.setText(String.format(getResources().getString(R.string.llevas),intentos));
+            mpPerder.start();
+            if(intentos == 5 || intentos == 10 || intentos == 11){
+                btnAyuda.setVisibility(View.VISIBLE);
+            }
+        }
+        return false;
     }
 
     private void reiniciar() {
@@ -272,6 +265,95 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         visibilidadBotones();
         prueba();
         tvFondo.setText(getResources().getString(R.string.encontar));
+    }
+
+    private void prueba() {
+        Log.d(getResources().getString(R.string.tag), String.format(getResources().getString(R.string.logMes),numAle+1));
+    }
+
+    private void ayudar() {
+        Random help = new Random();
+        int ayuda;
+        do{
+            ayuda = help.nextInt(20);
+            for(int i = 0; i < apretados.size(); i++){
+                if(ayuda == apretados.get(i)){
+                    ayuda = numAle;
+                    i = apretados.size();
+                }
+            }
+        }while(ayuda == numAle);
+        intentos = intentos + 2;
+        tvFondo.setText(String.format(getResources().getString(R.string.llevas),intentos));
+        invisivilidadBotones(ayuda+1);
+        apretados.add(ayuda);
+        btnAyuda.setVisibility(View.INVISIBLE);
+    }
+
+    private void invisivilidadBotones(int boton){
+        switch (boton){
+            case 1:
+                btn1.setVisibility(View.INVISIBLE);
+                break;
+            case 2:
+                btn2.setVisibility(View.INVISIBLE);
+                break;
+            case 3:
+                btn3.setVisibility(View.INVISIBLE);
+                break;
+            case 4:
+                btn4.setVisibility(View.INVISIBLE);
+                break;
+            case 5:
+                btn5.setVisibility(View.INVISIBLE);
+                break;
+            case 6:
+                btn6.setVisibility(View.INVISIBLE);
+                break;
+            case 7:
+                btn7.setVisibility(View.INVISIBLE);
+                break;
+            case 8:
+                btn8.setVisibility(View.INVISIBLE);
+                break;
+            case 9:
+                btn9.setVisibility(View.INVISIBLE);
+                break;
+            case 10:
+                btn10.setVisibility(View.INVISIBLE);
+                break;
+            case 11:
+                btn11.setVisibility(View.INVISIBLE);
+                break;
+            case 12:
+                btn12.setVisibility(View.INVISIBLE);
+                break;
+            case 13:
+                btn13.setVisibility(View.INVISIBLE);
+                break;
+            case 14:
+                btn14.setVisibility(View.INVISIBLE);
+                break;
+            case 15:
+                btn15.setVisibility(View.INVISIBLE);
+                break;
+            case 16:
+                btn16.setVisibility(View.INVISIBLE);
+                break;
+            case 17:
+                btn17.setVisibility(View.INVISIBLE);
+                break;
+            case 18:
+                btn18.setVisibility(View.INVISIBLE);
+                break;
+            case 19:
+                btn19.setVisibility(View.INVISIBLE);
+                break;
+            case 20:
+                btn20.setVisibility(View.INVISIBLE);
+                break;
+        }
+
     }
 
     private void visibilidadBotones() {

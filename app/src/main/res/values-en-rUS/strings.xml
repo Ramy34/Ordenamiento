@@ -15,4 +15,10 @@
     <string name="ingresado">You have entered %d numbers</string>
     <string name="reinicio">Restart</string>
     <string name="content">Image Description</string>
+    <string name="logMes">The button is: %d</string>
+    <string name="ayuda">Hint</string>
+    <string name="importante">Important!</string>
+    <string name="dialogMensaje">Do you want to use help?</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
 </resources>
