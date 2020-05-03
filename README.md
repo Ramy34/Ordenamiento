@@ -28,3 +28,6 @@ Consideraciones adicionales:
  - Hay un botón que permite ver el fondo del juego sin los botones.
  - Se puede reiniciar el juego sin la necesidad de salir de la activity.
  - En el log con la palabra "PRUEBA" se muestra el botón que gana el juego.
+ - Se agregan sonidos a los botones del juego.
+ -  Se agrega un botón de ayuda para eliminar un botón en el juego.
+ 
